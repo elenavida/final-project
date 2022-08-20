@@ -1,17 +1,35 @@
 <template>
   <div>Sign In</div>
   <PersonalRouter :route="route" :buttonText="buttonText" />
-  <p>Time to build up the Final Project!</p>
-  <p class="wu-text">Wu Tang Forever</p>
+  <form @submit.prevent="signIn">
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      v-model="email"
+      required="required"
+      placeholder="email@example.com"
+    />
+    <label for="password">Password (6 characters minimum)</label>
+    <input
+      :type="passwordFieldType"
+      id="password"
+      v-model="password"
+      required="required"
+      minlength="6"
+    />
+    <button type="submit">Sign In</button>
+  </form>
+  <p v-if="errorMessage">{{ errorMessage }}</p>
 </template>
 
 <script setup>
 import { ref, computed } from "vue";
 import PersonalRouter from "./PersonalRouter.vue";
-import { supabase } from "../supabase";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
-import { storeToRefs } from "pinia";
+
+const userStore = useUserStore();
 
 // Route Variables
 const route = "/auth/sign-up";
@@ -22,7 +40,7 @@ const email = ref("");
 const password = ref("");
 
 // Error Message
-const errorMsg = ref("");
+const errorMessage = ref("");
 
 //Show hide password variables
 const passwordFieldType = computed(() =>
@@ -34,28 +52,29 @@ const hidePassword = ref(true);
 const redirect = useRouter();
 
 // Arrow function to Signin user to supaBase
-const signIn = async () => {
+async function signIn() {
+  // const response = await userStore
+  //   .signUp(email.value, password.value).catch((error) => {
+  //     alert(error.message);
+  //   })
+  console.log("hello");
   try {
     // calls the user store and send the users info to backend to logIn
-    await useUserStore().signIn(email.value, password.value);
+    await userStore.signIn(email.value, password.value);
     // redirects user to the homeView
     redirect.push({ path: "/" });
   } catch (error) {
     // displays error message
-    errorMsg.value = `Error: ${error.message}`;
+    errorMessage.value = `Error: ${error.message}`;
     // hides error message
     setTimeout(() => {
-      errorMsg.value = null;
+      errorMessage.value = null;
     }, 5000);
   }
-};
+}
 </script>
 
 <style>
-.wu-text {
-  color: black;
-}
-
 .form {
   display: flex;
   flex-direction: column;
