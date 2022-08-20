@@ -1,8 +1,6 @@
 <template>
   <div>Sign Up</div>
   <PersonalRouter :route="route" :buttonText="buttonText" />
-  <p>Good Music, Patience and a lot effort</p>
-  <p>Keep calm and code on!</p>
 </template>
 
 <script setup>

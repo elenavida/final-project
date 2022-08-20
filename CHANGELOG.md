@@ -3,3 +3,4 @@
 - Plan in trello
 - Supabase created
 - Boilerplate
+- Add eslint
