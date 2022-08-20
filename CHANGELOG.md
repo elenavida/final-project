@@ -4,3 +4,5 @@
 - Supabase created
 - Boilerplate
 - Add eslint
+- Sign up form fields
+- Supabase auth
