@@ -1,9 +1,10 @@
 <template>
-  <div>Sign Up</div>
+  <h1>Sign Up</h1>
   <PersonalRouter :route="route" :buttonText="buttonText" />
-  <form @submit.prevent="signUp">
+  <form class="form" @submit.prevent="signUp">
     <label for="email">Email</label>
     <input
+      class="input"
       type="email"
       id="email"
       v-model="email"
@@ -12,15 +13,16 @@
     />
     <label for="password">Password (6 characters minimum)</label>
     <input
+      class="input"
       type="password"
       id="password"
       v-model="password"
       required="required"
       minlength="6"
     />
-    <button type="submit">Sign Up</button>
+    <button class="button" type="submit">Sign Up</button>
   </form>
-  <p v-if="errorMessage">{{ errorMessage }}</p>
+  <p class="error" v-if="errorMessage">{{ errorMessage }}</p>
 </template>
 
 <script setup>
