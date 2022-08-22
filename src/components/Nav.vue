@@ -1,8 +1,10 @@
 <template>
   <div>Nav Component</div>
+  <LogOut />
 </template>
 
 <script setup>
+import LogOut from "./LogOut.vue";
 //constant to save a variable that will hold the use router method
 
 // constant to save a variable that will get the user from store with a computed function imported from vue

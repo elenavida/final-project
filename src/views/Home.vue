@@ -1,8 +1,13 @@
 <template>
   <div>hello</div>
+  <Nav />
+  <footer />
 </template>
 
-<script setup></script>
+<script setup>
+import Nav from "../components/Nav.vue";
+import footer from "../components/Footer.vue";
+</script>
 
 <style></style>
 

@@ -1,19 +1,20 @@
 <template>
-  <button>LogOut</button>
+  <button @click.prevent="signOut">LogOut</button>
 </template>
 
-<script>
-import { ref, computed } from "vue";
+<script setup>
+import { supabase } from "../supabase";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";
-import PersonalRouter from "./PersonalRouter.vue";
 
 const redirect = useRouter();
+const userStore = useUserStore();
 
 // Error Message
 const errorMessage = ref("");
 
-async function signOut() {
+const signOut = async () => {
   //   const response = await userStore
   //     .signUp(email.value, password.value)
   //     .catch((error) => {
@@ -32,7 +33,7 @@ async function signOut() {
       errorMessage.value = null;
     }, 5000);
   }
-}
+};
 </script>
 
 <style></style>
