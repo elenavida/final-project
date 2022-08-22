@@ -1,5 +1,5 @@
 <template>
-  <div>Sign In</div>
+  <div class="text-2xl text-green-500">Sign In</div>
   <PersonalRouter :route="route" :buttonText="buttonText" />
   <form @submit.prevent="signIn">
     <label for="email">Email</label>

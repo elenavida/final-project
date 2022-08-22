@@ -1,6 +1,8 @@
 <template>
-  <div>Nav Component</div>
-  <LogOut />
+  <header>
+    <div>Nav Component</div>
+    <LogOut />
+  </header>
 </template>
 
 <script setup>
@@ -16,4 +18,9 @@ import LogOut from "./LogOut.vue";
 // async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
 </script>
 
-<style></style>
+<style scoped>
+header {
+  display: block;
+  background: #20a0e9;
+}
+</style>
