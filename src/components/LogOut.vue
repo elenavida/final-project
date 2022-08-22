@@ -1,9 +1,10 @@
 <template>
-  <button @click.prevent="signOut">LogOut</button>
+  <button class="button" @click.prevent="signOut">LogOut</button>
+
+  <p class="error" v-if="errorMessage">{{ errorMessage }}</p>
 </template>
 
 <script setup>
-import { supabase } from "../supabase";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { useUserStore } from "../stores/user";

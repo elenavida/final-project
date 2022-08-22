@@ -1,15 +1,11 @@
 <template>
   <Nav />
-  <TaskFormText />
-  <TaskForm />
-  <NewTaskSpace />
+  <NewTask />
   <Footer />
 </template>
 
 <script setup>
 import Nav from "../components/Nav.vue";
-import TaskFormText from "../components/TaskFormText.vue";
-import TaskForm from "../components/TaskForm.vue";
 import NewTask from "../components/NewTask.vue";
 import Footer from "../components/Footer.vue";
 </script>

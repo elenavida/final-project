@@ -1,6 +1,7 @@
 <template>
   <header>
-    <div>Nav Component</div>
+    <div class="logo">TaskApp</div>
+    <p>Welcome Back {{ email }}</p>
     <LogOut />
   </header>
 </template>
@@ -20,7 +21,14 @@ import LogOut from "./LogOut.vue";
 
 <style scoped>
 header {
-  display: block;
-  background: #20a0e9;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: white;
+  padding: 20px 0px;
+}
+p,
+.logo {
+  line-height: 44px;
 }
 </style>
