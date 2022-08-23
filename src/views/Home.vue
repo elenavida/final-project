@@ -1,6 +1,7 @@
 <template>
   <Nav />
   <NewTask />
+
   <Footer />
 </template>
 

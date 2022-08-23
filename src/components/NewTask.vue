@@ -1,7 +1,5 @@
 <template>
   <div class="container">
-    <input type="text" v-model="patata" />
-    <p>{{ patata }}Hola a</p>
     <TaskFormText />
     <TaskForm />
   </div>
