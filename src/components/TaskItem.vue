@@ -1,5 +1,8 @@
 <template>
-  <div>Task Item Component</div>
+  <div>
+    <div>Task Item Component</div>
+    <p id="explicacionTitulo"></p>
+  </div>
 </template>
 
 <script setup>
