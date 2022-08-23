@@ -1,8 +1,15 @@
 <template>
-  <div>
-    <div>Task Item Component</div>
-    <p id="explicacionTitulo"></p>
-  </div>
+  <article class="task">
+    <div>
+      <h3>Title</h3>
+      <p>Description</p>
+    </div>
+    <menu>
+      <li><button class="done">Done</button></li>
+      <li><button class="edit">Edit</button></li>
+      <li><button class="delete">Delete</button></li>
+    </menu>
+  </article>
 </template>
 
 <script setup>
@@ -13,7 +20,27 @@
 // const props = defineProps(["ENTER-PROP-HERE"]);
 </script>
 
-<style></style>
+<style scoped>
+.task {
+  display: flex;
+  justify-content: space-between;
+  background: rgb(219, 162, 219);
+  margin-top: 20px;
+  padding: 10px;
+}
+h3 {
+  font-size: 24px;
+}
+button {
+  background: rgb(182, 68, 182);
+  width: 60px;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+.delete {
+  margin-bottom: 0;
+}
+</style>
 
 <!-- 
 **Hints**

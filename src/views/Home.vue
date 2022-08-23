@@ -1,7 +1,7 @@
 <template>
   <Nav />
   <NewTask />
-  <TaskSpace />
+  <Tasks />
   <Footer />
 </template>
 
@@ -9,7 +9,7 @@
 import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import Footer from "../components/Footer.vue";
-import TaskSpace from "../components/TaskSpace.vue";
+import Tasks from "../components/Tasks.vue";
 </script>
 
 <style></style>
