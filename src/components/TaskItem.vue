@@ -1,8 +1,8 @@
 <template>
   <article class="task">
     <div>
-      <h3>Title</h3>
-      <p>Description</p>
+      <h3>{{ title }}</h3>
+      <p>{{ description }}</p>
     </div>
     <menu>
       <li><button class="done">Done</button></li>
@@ -17,7 +17,7 @@
 //   ENTER-EMITS-HERE
 // ])
 
-// const props = defineProps(["ENTER-PROP-HERE"]);
+const props = defineProps(["title", "description", "id"]);
 </script>
 
 <style scoped>

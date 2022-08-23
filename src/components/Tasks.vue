@@ -1,8 +1,11 @@
 <template>
-  <h3 v-for="task in tasks" :key="task">
-    {{ task.title }} {{ task.description }}
-  </h3>
-  <TaskItem />
+  <TaskItem
+    v-for="task in tasks"
+    :key="task.id"
+    :id="task.id"
+    :title="task.title"
+    :description="task.description"
+  />
 </template>
 
 <script setup>
