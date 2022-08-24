@@ -13,7 +13,7 @@
         </button>
       </li>
       <li><button class="edit">Edit</button></li>
-      <li><button class="delete">Delete</button></li>
+      <li><button class="delete" @click="deleteTask">Delete</button></li>
     </menu>
   </article>
 </template>
@@ -34,6 +34,19 @@ async function doneTask() {
       props.description,
       !props.isComplete
     );
+  } catch (error) {
+    // displays error message
+    errorMessage.value = `Error: ${error.message}`;
+    // hides error message
+    setTimeout(() => {
+      errorMessage.value = null;
+    }, 5000);
+  }
+}
+
+async function deleteTask() {
+  try {
+    await taskStore.deleteTask(props.id);
   } catch (error) {
     // displays error message
     errorMessage.value = `Error: ${error.message}`;

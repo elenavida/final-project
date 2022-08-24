@@ -40,6 +40,12 @@ export const useTaskStore = defineStore("tasks", {
       if (error) throw error;
       await this.fetchTasks();
     },
+
+    async deleteTask(id) {
+      const { error } = await supabase.from("tasks").delete().match({ id });
+      if (error) throw error;
+      await this.fetchTasks();
+    },
     /**
      * Supabase examples:
 const { data, error } = await supabase
