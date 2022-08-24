@@ -1,19 +1,31 @@
 <template>
   <article class="task">
     <div>
-      <h3>{{ title }}</h3>
-      <p>{{ description }}</p>
+      <h3 :contenteditable="isEditing" @input="onTitleInput">{{ title }}</h3>
+      <p :contenteditable="isEditing" @input="onDescriptionInput">
+        {{ description }}
+      </p>
       <p class="error" v-if="errorMessage">{{ errorMessage }}</p>
     </div>
     <menu>
-      <li>
+      <li v-if="!isEditing">
         <button class="done" @click="doneTask">
           <span v-if="isComplete">✅</span>
           <span v-else>⬜️</span>
         </button>
       </li>
-      <li><button class="edit">Edit</button></li>
-      <li><button class="delete" @click="deleteTask">Delete</button></li>
+      <li v-if="!isEditing">
+        <button class="edit" @click="isEditing = true">Edit</button>
+      </li>
+      <li v-if="!isEditing">
+        <button class="delete" @click="deleteTask">Delete</button>
+      </li>
+      <li v-if="isEditing">
+        <button class="save" @click="saveButton">Save</button>
+      </li>
+      <li v-if="isEditing">
+        <button class="cancel" @click="cancelButton">Cancel</button>
+      </li>
     </menu>
   </article>
 </template>
@@ -25,6 +37,9 @@ import { ref } from "vue";
 const taskStore = useTaskStore();
 const props = defineProps(["title", "description", "id", "isComplete"]);
 const errorMessage = ref("");
+const isEditing = ref(false);
+const title = ref(props.title);
+const description = ref(props.description);
 
 async function doneTask() {
   try {
@@ -47,6 +62,35 @@ async function doneTask() {
 async function deleteTask() {
   try {
     await taskStore.deleteTask(props.id);
+  } catch (error) {
+    // displays error message
+    errorMessage.value = `Error: ${error.message}`;
+    // hides error message
+    setTimeout(() => {
+      errorMessage.value = null;
+    }, 5000);
+  }
+}
+function onTitleInput(event) {
+  title.value = event.target.innerText;
+}
+function onDescriptionInput(event) {
+  description.value = event.target.innerText;
+}
+function cancelButton() {
+  isEditing.value = false;
+  title.value = props.title;
+  description.value = props.description;
+}
+async function saveButton() {
+  try {
+    await taskStore.updateTask(
+      props.id,
+      title.value,
+      description.value,
+      props.isComplete
+    );
+    isEditing.value = false;
   } catch (error) {
     // displays error message
     errorMessage.value = `Error: ${error.message}`;
