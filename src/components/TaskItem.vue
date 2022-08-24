@@ -3,9 +3,15 @@
     <div>
       <h3>{{ title }}</h3>
       <p>{{ description }}</p>
+      <p class="error" v-if="errorMessage">{{ errorMessage }}</p>
     </div>
     <menu>
-      <li><button class="done">Done</button></li>
+      <li>
+        <button class="done" @click="doneTask">
+          <span v-if="isComplete">✅</span>
+          <span v-else>⬜️</span>
+        </button>
+      </li>
       <li><button class="edit">Edit</button></li>
       <li><button class="delete">Delete</button></li>
     </menu>
@@ -13,11 +19,30 @@
 </template>
 
 <script setup>
-// const emit = defineEmits([
-//   ENTER-EMITS-HERE
-// ])
+import { useTaskStore } from "../stores/task.js";
+import { ref } from "vue";
 
-const props = defineProps(["title", "description", "id"]);
+const taskStore = useTaskStore();
+const props = defineProps(["title", "description", "id", "isComplete"]);
+const errorMessage = ref("");
+
+async function doneTask() {
+  try {
+    await taskStore.updateTask(
+      props.id,
+      props.title,
+      props.description,
+      !props.isComplete
+    );
+  } catch (error) {
+    // displays error message
+    errorMessage.value = `Error: ${error.message}`;
+    // hides error message
+    setTimeout(() => {
+      errorMessage.value = null;
+    }, 5000);
+  }
+}
 </script>
 
 <style scoped>

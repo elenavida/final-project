@@ -5,6 +5,7 @@
     :id="task.id"
     :title="task.title"
     :description="task.description"
+    :isComplete="task.is_complete"
   />
 </template>
 

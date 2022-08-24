@@ -28,6 +28,30 @@ export const useTaskStore = defineStore("tasks", {
       if (error) throw error;
       await this.fetchTasks();
     },
+    async updateTask(id, title, description, isComplete) {
+      const { error } = await supabase
+        .from("tasks")
+        .update({
+          title: title,
+          is_complete: isComplete,
+          description: description,
+        })
+        .match({ id });
+      if (error) throw error;
+      await this.fetchTasks();
+    },
+    /**
+     * Supabase examples:
+const { data, error } = await supabase
+  .from('cities')
+  .delete()
+  .match({ id: 666 })
+
+const { data, error } = await supabase
+  .from('cities')
+  .update({ name: 'Middle Earth' })
+  .match({ name: 'Auckland' })
+     */
   },
   persist: {
     enabled: true,
