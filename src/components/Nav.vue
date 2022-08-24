@@ -1,22 +1,18 @@
 <template>
   <header>
     <div class="logo">TaskApp</div>
-    <p>Welcome Back {{ email }}</p>
+    <p>Welcome Back {{ user.email }}</p>
     <LogOut />
   </header>
 </template>
 
 <script setup>
 import LogOut from "./LogOut.vue";
-//constant to save a variable that will hold the use router method
+import { storeToRefs } from "pinia";
+import { useUserStore } from "../stores/user";
 
-// constant to save a variable that will get the user from store with a computed function imported from vue
-
-// constant that calls user email from the useUSerStore
-
-// constant that saves the user email and cleans out the @client from the user
-
-// async function that calls the signOut method from the useUserStore and pushes the user back to the Auth view.
+const userStore = useUserStore();
+const { user } = storeToRefs(userStore);
 </script>
 
 <style scoped>
