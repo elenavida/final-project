@@ -23,7 +23,7 @@ import TaskForm from "./TaskForm.vue";
 
 <style scoped>
 .container {
-  background-color: #efefef;
+  background-color: #313131;
   padding: 20px;
 }
 </style>

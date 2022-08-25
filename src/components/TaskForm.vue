@@ -49,4 +49,8 @@ async function addTask() {
 }
 </script>
 
-<style></style>
+<style scoped>
+input {
+  padding-left: 5px;
+}
+</style>

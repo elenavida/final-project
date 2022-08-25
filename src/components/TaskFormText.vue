@@ -1,9 +1,18 @@
 <template>
   <h1>Add a new Task</h1>
   <p>Keep your life organized, prepare for a trip? Start here</p>
-  <p>Today's Date is Aug 22nd 2022</p>
+  <p>Today's Date is {{ time }}</p>
 </template>
 
-<script></script>
+<script setup>
+import { ref } from "vue";
+import moment from "moment";
 
-<style></style>
+const time = ref(moment().format("DD MM YY"));
+</script>
+
+<style scoped>
+p {
+  text-align: center;
+}
+</style>

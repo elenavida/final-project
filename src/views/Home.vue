@@ -10,6 +10,10 @@ import Nav from "../components/Nav.vue";
 import NewTask from "../components/NewTask.vue";
 import Footer from "../components/Footer.vue";
 import Tasks from "../components/Tasks.vue";
+
+import moment from "moment";
+
+const time = moment().format("MMM do YYY");
 </script>
 
 <style></style>

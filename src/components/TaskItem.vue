@@ -123,7 +123,7 @@ async function saveButton() {
 .task {
   display: flex;
   justify-content: space-between;
-  background: rgb(219, 162, 219);
+  background: #364d37;
   margin-top: 20px;
   padding: 10px;
 }
@@ -132,10 +132,24 @@ h3 {
   margin-bottom: 5px;
 }
 button {
-  background: rgb(182, 68, 182);
   width: 48px;
   padding: 5px;
   margin-bottom: 5px;
+}
+.done {
+  background: #4caf50;
+}
+.edit {
+  background: var(--color-purple);
+}
+.delete {
+  background: var(--color-red);
+}
+.save {
+  background: #4caf50;
+}
+.cancel {
+  background: var(--color-red);
 }
 
 .delete {

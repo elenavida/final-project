@@ -1,7 +1,10 @@
 <template>
   <header>
-    <div class="logo">TaskApp</div>
-    <p>Welcome Back {{ user.email }}</p>
+    <div class="logo">
+      <i class="fa-solid fa-list-check logoImg"></i>
+      <div class="logo">TaskApp</div>
+    </div>
+    <p>Welcome back {{ user.email }}</p>
     <LogOut />
   </header>
 </template>
@@ -20,11 +23,22 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background: white;
   padding: 20px 0px;
 }
 p,
 .logo {
   line-height: 44px;
+  display: flex;
+  flex-direction: row;
+}
+.logoImg {
+  padding-top: 14px;
+  margin-right: 4px;
+}
+
+@media (max-width: 600px) {
+  p {
+    display: none;
+  }
 }
 </style>

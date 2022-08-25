@@ -1,5 +1,9 @@
 <template>
-  <h1>Sign In</h1>
+  <div class="logo">
+    <i class="fa-solid fa-list-check logoImg"></i>
+    <h1>TaskApp</h1>
+  </div>
+  <h2>Sign In</h2>
   <PersonalRouter :route="route" :buttonText="buttonText" />
   <form class="form" @submit.prevent="signIn">
     <label for="email">Email</label>
@@ -76,4 +80,15 @@ async function signIn() {
 }
 </script>
 
-<style></style>
+<style scoped>
+.logo {
+  line-height: 44px;
+  display: flex;
+  flex-direction: row;
+}
+.logoImg {
+  padding-top: 8px;
+  margin-right: 8px;
+  font-size: 30px;
+}
+</style>
