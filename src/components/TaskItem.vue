@@ -12,21 +12,33 @@
     <menu>
       <li v-if="!isEditing">
         <button class="done" @click="doneTask">
-          <span v-if="isComplete">✅</span>
-          <span v-else>⬜️</span>
+          <span v-if="isComplete">
+            <i class="fa-solid fa-square-check fa-xl fa-inverse"></i>
+          </span>
+          <span v-else
+            ><i class="fa-solid fa-square fa-xl fa-inverse"></i
+          ></span>
         </button>
       </li>
       <li v-if="!isEditing">
-        <button class="edit" @click="editButton">Edit</button>
+        <button class="edit" @click="editButton">
+          <i class="fa-solid fa-pencil fa-xl fa-inverse"></i>
+        </button>
       </li>
       <li v-if="!isEditing">
-        <button class="delete" @click="deleteTask">Delete</button>
+        <button class="delete" @click="deleteTask">
+          <i class="fa-solid fa-trash fa-xl fa-inverse"></i>
+        </button>
       </li>
       <li v-if="isEditing">
-        <button class="save" @click="saveButton">Save</button>
+        <button class="save" @click="saveButton">
+          <i class="fa-solid fa-cloud-arrow-up fa-xl fa-inverse"></i>
+        </button>
       </li>
       <li v-if="isEditing">
-        <button class="cancel" @click="cancelButton">Cancel</button>
+        <button class="cancel" @click="cancelButton">
+          <i class="fa-solid fa-rotate-left fa-xl fa-inverse"></i>
+        </button>
       </li>
     </menu>
   </article>
@@ -121,16 +133,16 @@ h3 {
 }
 button {
   background: rgb(182, 68, 182);
-  width: 60px;
+  width: 48px;
   padding: 5px;
   margin-bottom: 5px;
 }
+
 .delete {
   margin-bottom: 0;
 }
 .editing h3,
 .editing p {
-  background-color: #69ffb4;
-  outline: 1px solid hotpink;
+  outline: 1px solid white;
 }
 </style>
