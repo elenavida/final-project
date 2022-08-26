@@ -46,18 +46,6 @@ export const useTaskStore = defineStore("tasks", {
       if (error) throw error;
       await this.fetchTasks();
     },
-    /**
-     * Supabase examples:
-const { data, error } = await supabase
-  .from('cities')
-  .delete()
-  .match({ id: 666 })
-
-const { data, error } = await supabase
-  .from('cities')
-  .update({ name: 'Middle Earth' })
-  .match({ name: 'Auckland' })
-     */
   },
   persist: {
     enabled: true,
