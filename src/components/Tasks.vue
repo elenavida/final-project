@@ -1,5 +1,6 @@
 <template>
   <TaskItem
+    class="animate__backInRight animate__animated"
     v-for="task in tasks"
     :key="task.id"
     :id="task.id"
@@ -14,6 +15,7 @@ import { useTaskStore } from "../stores/task";
 import { onMounted } from "vue";
 import { storeToRefs } from "pinia";
 import TaskItem from "./TaskItem.vue";
+import "animate.css";
 
 const taskStore = useTaskStore();
 const { tasks } = storeToRefs(taskStore);
