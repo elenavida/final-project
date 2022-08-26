@@ -24,6 +24,15 @@
       required="required"
       minlength="6"
     />
+    <label for="password">Password (6 characters minimum)</label>
+    <input
+      class="input"
+      type="password"
+      id="confirmPassword"
+      v-model="confirmPassword"
+      required="required"
+      minlength="6"
+    />
     <button class="button" type="submit">Sign Up</button>
   </form>
   <p class="error" v-if="errorMessage">{{ errorMessage }}</p>
@@ -44,6 +53,7 @@ const buttonText = "Test the Sign In Route";
 // Input Fields
 const email = ref();
 const password = ref();
+const confirmPassword = ref();
 
 // Error Message
 const errorMessage = ref("");
@@ -63,15 +73,23 @@ async function signUp() {
   //     .catch((error) => {
   //       alert(error.message);
   //     });
-  try {
-    // calls the user store and send the users info to backend to logIn
-    await userStore.signUp(email.value, password.value);
-    // redirects user to the homeView
-    redirect.push({ path: "/auth/login" });
-  } catch (error) {
-    // displays error message
-    errorMessage.value = `Error: ${error.message}`;
-    // hides error message
+  if (password.value === confirmPassword.value) {
+    try {
+      // calls the user store and send the users info to backend to logIn
+      await userStore.signUp(email.value, password.value);
+      // redirects user to the homeView
+      redirect.push({ path: "/auth/login" });
+    } catch (error) {
+      // displays error message
+      errorMessage.value = `Error: ${error.message}`;
+      // hides error message
+      setTimeout(() => {
+        errorMessage.value = null;
+      }, 5000);
+    }
+  } else {
+    errorMessage.value = `Error Password fields must match`;
+    //hide error message
     setTimeout(() => {
       errorMessage.value = null;
     }, 5000);
@@ -89,5 +107,8 @@ async function signUp() {
   padding-top: 8px;
   margin-right: 8px;
   font-size: 30px;
+}
+input {
+  padding-left: 5px;
 }
 </style>

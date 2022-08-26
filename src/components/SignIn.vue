@@ -16,7 +16,6 @@
       placeholder="email@example.com"
     />
     <label for="password">Password (6 characters minimum)</label>
-    <i>class="fas fa-eye-slash fa-sm" data-v-ca8ded13 ::before </i>
     <input
       class="input"
       :type="passwordFieldType"
@@ -92,5 +91,8 @@ async function signIn() {
   padding-top: 8px;
   margin-right: 8px;
   font-size: 30px;
+}
+input {
+  padding-left: 5px;
 }
 </style>
