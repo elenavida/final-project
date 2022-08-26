@@ -16,6 +16,7 @@
       placeholder="email@example.com"
     />
     <label for="password">Password (6 characters minimum)</label>
+    <i>class="fas fa-eye-slash fa-sm" data-v-ca8ded13 ::before </i>
     <input
       class="input"
       :type="passwordFieldType"
@@ -24,6 +25,7 @@
       required="required"
       minlength="6"
     />
+
     <button class="button" type="submit">Sign In</button>
   </form>
   <p class="error" v-if="errorMessage">{{ errorMessage }}</p>

@@ -127,6 +127,10 @@ async function saveButton() {
   margin-top: 20px;
   padding: 10px;
 }
+.task:hover {
+  scale: 1.1;
+  transition: 0.2s ease-in-out;
+}
 h3 {
   font-size: 24px;
   margin-bottom: 5px;
